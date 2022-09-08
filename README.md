@@ -4,7 +4,6 @@
 
 - pyautogui
 - keyboard
-- tabulate
 
 ## Usage
 
