@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
 import keyboard, time
 import win32clipboard
 import pyautogui
