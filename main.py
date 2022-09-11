@@ -1,6 +1,6 @@
 import tkinter as tk
 import keyboard, time
-import win32clipboard
+import pyperclip
 import pyautogui
 import requests
 from bs4 import BeautifulSoup
@@ -21,9 +21,7 @@ def getHTMLText(url, headers=None, params=None):
 		return "error"
 
 def get_clipboard_text():
-    win32clipboard.OpenClipboard()
-    data = win32clipboard.GetClipboardData()
-    win32clipboard.CloseClipboard()
+    data = pyperclip.paste()
     return data
 
 def get_mouse_pos():
