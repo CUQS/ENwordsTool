@@ -1,9 +1,8 @@
 import tkinter as tk
 import keyboard, time
-import pyperclip
-import pyautogui
 import requests
 from bs4 import BeautifulSoup
+from utils import *
 
 
 SEARCH_NUM = 30
@@ -19,14 +18,6 @@ def getHTMLText(url, headers=None, params=None):
 		return r.text
 	except:
 		return "error"
-
-def get_clipboard_text():
-    data = pyperclip.paste()
-    return data
-
-def get_mouse_pos():
-    pos = pyautogui.position()
-    return "800x400+"+str(pos[0]-800)+"+"+str(pos[1]-15)
 
 
 def main():
@@ -61,35 +52,7 @@ def main():
         ent.config(textvariable=var, relief='flat')
         ent.grid(row=idx//3, column=idx%3, sticky="nsew")
 
-    # frame = tk.Frame(root)
-    # tree = ttk.Treeview(frame, columns=(1, 2, 3), show='headings', height=4)
-
-    # tree.heading(1, text="")
-    # tree.heading(2, text="")
-    # tree.heading(3, text="")
-
-    # for idx, row in enumerate(table):
-    #     tree.insert(parent='', index=idx, iid=idx, values=row)
-
-    # style = ttk.Style()
-    # style.theme_use("default")
-    # style.map("Treeview")
-    # scrollbar = ttk.Scrollbar(frame, orient=tk.VERTICAL, command=tree.yview)
-    # tree.configure(yscroll=scrollbar.set)
-
-    # frame.pack()
-    # tree.pack(side=tk.LEFT)
-    # scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-
     root.mainloop()
-
-    # top = tk.Tk()
-    # top.wm_attributes('-topmost',1)
-    # top.geometry(position)
-    # e=tk.Text(font=("Arial", 15))
-    # e.insert(1.0,tabulate(table))
-    # e.pack()
-    # top.mainloop()
 
     return
 
@@ -110,3 +73,6 @@ if __name__ == "__main__":
                         if dura > 1:
                             main()
                             break
+                # if b.name equals shift, copy 2 time
+                elif b.name == "shift":
+                    copy_time_to_clipboard()
